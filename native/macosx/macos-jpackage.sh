@@ -149,5 +149,20 @@ if [ -n "${2}" ]; then
   )
   do_signapp "JOSM_${first}"
   do_signapp "JOSM_${second}"
+  if [ "${KEYCHAINPATH}" != "false" ]; then
+    function do_codesign() {
+      codesign --sign "FOSSGIS e.V." \
+        --force \
+        --keychain "${KEYCHAINPATH}" \
+        --timestamp \
+        --prefix "de.openstreetmap.josm" \
+        --identifier "${2}" \
+        --options runtime \
+        --entitlements "$(dirname "${BASH_SOURCE[0]}")/josm.entitlements" \
+        --verbose=4 "${1}"
+    }
+    do_codesign app/JOSM.app/Contents/runtime "com.oracle.java.de.openstreetmap.josm"
+    do_codesign app/JOSM.app/ "de.openstreetmap.josm"
+  fi
 fi
 do_signapp JOSM
