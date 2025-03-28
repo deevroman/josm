@@ -3,7 +3,7 @@
 <ivysettings>
   <settings defaultResolver="josm-nexus"/>
   <resolvers>
-    <ibiblio name="josm-nexus" m2compatible="true" root="https://josm.openstreetmap.de/nexus/content/repositories/public/" />
+    <ibiblio name="josm-nexus" m2compatible="true" root="https://josm.openstreetmap.de/repository/public/" />
   </resolvers>
   <!-- Remove error_prone 2.10.0 specific statements in build.xml when we drop Java 8 as a build platform -->
   <property name="versions.error_prone" value="2.10.0" unlessset="isJava11"/>
