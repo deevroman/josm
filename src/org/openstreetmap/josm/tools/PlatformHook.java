@@ -375,7 +375,7 @@ public interface PlatformHook {
         final String jvmArch = System.getProperty("sun.arch.data.model");
         boolean canContinue = true;
         if (Utils.getJavaVersion() < 11) {
-            canContinue = false;
+            canContinue = true;
             messages.add(tr("You must update Java to Java {0} or later in order to run this version of JOSM", 17));
             // Reset webstart/java update prompts
             Config.getPref().put("askUpdateWebStart", null);
