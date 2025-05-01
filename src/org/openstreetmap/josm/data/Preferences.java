@@ -450,7 +450,7 @@ public class Preferences extends AbstractPreferences {
      */
     protected void load() throws IOException, SAXException, XMLStreamException {
         File pref = getPreferenceFile();
-        PreferencesReader.validateXML(pref);
+        //PreferencesReader.validateXML(pref);
         PreferencesReader reader = new PreferencesReader(pref, false);
         reader.parse();
         settingsMap.clear();
