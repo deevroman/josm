@@ -125,7 +125,8 @@ public class PlatformHookUnixoid implements PlatformHook {
      */
     public static boolean isDebianOrUbuntu() {
         try {
-            String dist = Utils.execOutput(Arrays.asList("lsb_release", "-i", "-s"));
+            //String dist = Utils.execOutput(Arrays.asList("lsb_release", "-i", "-s"));
+            String dist = "Ubuntu";
             return "Debian".equalsIgnoreCase(dist) || "Ubuntu".equalsIgnoreCase(dist) || "Mint".equalsIgnoreCase(dist);
         } catch (IOException | ExecutionException | InterruptedException e) {
             // lsb_release is not available on all Linux systems, so don't log at warning level
